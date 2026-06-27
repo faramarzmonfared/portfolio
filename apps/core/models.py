@@ -26,4 +26,36 @@ class Profile(TranslatableModel):
     def __str__(self) -> str:
         """Return the profile's display name."""
         return self.name
+
+
+class SocialLink(models.Model):
+    """Represents a social media link attached to a profile."""
+
+    class Platform(models.TextChoices):
+        """Supported social media platforms."""
+
+        GITHUB = "GITHUB", "GitHub"
+        LINKEDIN = "LINKEDIN", "LinkedIn"
+        TELEGRAM = "TELEGRAM", "Telegram"
+        WHATSAPP = "WHATSAPP", "WhatsApp"
+        FACEBOOK = "FACEBOOK", "Facebook"
+
+    profile = models.ForeignKey(
+        Profile, on_delete=models.CASCADE, related_name="social_links"
+    )
+    platform = models.CharField(max_length=20, choices=Platform.choices)
+    url = models.URLField()
+    label = models.CharField(max_length=100, blank=True)
+    icon = models.CharField(max_length=100, blank=True)
+    is_active = models.BooleanField(default=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        """Meta options for SocialLink."""
+
+        ordering = ["order"]
+
+    def __str__(self) -> str:
+        """Return a readable representation of the social link."""
+        return f"{self.profile.name} - {self.platform}"
     
