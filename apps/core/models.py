@@ -13,11 +13,11 @@ class Profile(TranslatableModel):
     """
 
     translations = TranslatedFields(
+        name = models.CharField(max_length=100),
         tagline=models.CharField(max_length=255),
         bio=MarkdownxField(),
     )
 
-    name = models.CharField(max_length=100)
     avatar = CloudinaryField("avatar", blank=True, null=True)
     resume_file = CloudinaryField("resume", blank=True, null=True)
     email = models.EmailField()
@@ -25,7 +25,7 @@ class Profile(TranslatableModel):
 
     def __str__(self) -> str:
         """Return the profile's display name."""
-        return self.name
+        return str(self.safe_translation_getter("name", default="Unnamed Profile"))
 
 
 class SocialLink(models.Model):
@@ -57,5 +57,5 @@ class SocialLink(models.Model):
 
     def __str__(self) -> str:
         """Return a readable representation of the social link."""
-        return f"{self.profile.name} - {self.platform}"
+        return f"{self.profile} - {self.platform}"
     
