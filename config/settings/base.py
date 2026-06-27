@@ -141,3 +141,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+# Cloudinary Storage
+CLOUDINARY_STORAGE = {
+    "CLOUDINARY_URL": os.environ["CLOUDINARY_URL"],
+}
