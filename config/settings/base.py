@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'apps.core',
     'apps.portfolio',
+    'apps.resume',
 ]
 
 MIDDLEWARE = [
