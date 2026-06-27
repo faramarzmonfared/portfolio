@@ -113,6 +113,22 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+LANGUAGES = [
+    ("en", "English"),
+    ("fa", "Persian"),
+]
+
+PARLER_LANGUAGES = {
+    None: (
+        {"code": "en"},
+        {"code": "fa"},
+    ),
+    "default": {
+        "fallbacks": ["en"],
+        "hide_untranslated": False,
+    },
+}
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
