@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _("Projects") }}{% endblock %}
+
+{% block content %}
+    <div class="max-w-5xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-semibold mb-8">{{ _("Projects") }}</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {% for project in projects %}
+                
+                    href="{{ url('portfolio:project_detail', kwargs={'slug': project.slug}) }}"
+                    class="block p-6 rounded-card border border-border dark:border-border-dark hover:border-accent dark:hover:border-accent-dark transition-colors duration-200"
+                >
+                    <h2 class="text-xl font-semibold">{{ project.title }}</h2>
+                    <p class="text-text-muted mt-2">{{ project.overview }}</p>
+                </a>
+            {% else %}
+                <p class="text-text-muted">{{ _("No projects yet.") }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

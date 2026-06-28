@@ -4,11 +4,11 @@
             ~/
         </a>
 
-        <div class="flex items-center gap-6">
+        <div class="hidden md:flex items-center gap-6">
             <a href="{{ url('home') }}" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
                 {{ _("Home") }}
             </a>
-            <a href="#" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+            <a href="{{ url('portfolio:project_list') }}" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
                 {{ _("Projects") }}
             </a>
             <a href="#" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
@@ -17,8 +17,33 @@
             <a href="#" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
                 {{ _("Contact") }}
             </a>
-
-            {% include "components/theme_toggle.html" %}
         </div>
+
+        <div class="flex items-center gap-2">
+            {% include "components/theme_toggle.html" %}
+            <button
+                id="mobile-menu-toggle"
+                type="button"
+                aria-label="{{ _('Toggle menu') }}"
+                class="p-2 rounded-card border border-border dark:border-border-dark md:hidden"
+            >
+                ☰
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border dark:border-border-dark px-4 py-4 flex flex-col gap-4">
+        <a href="{{ url('home') }}" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+            {{ _("Home") }}
+        </a>
+        <a href="{{ url('portfolio:project_list') }}" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+            {{ _("Projects") }}
+        </a>
+        <a href="#" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+            {{ _("Resume") }}
+        </a>
+        <a href="#" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+            {{ _("Contact") }}
+        </a>
     </div>
 </nav>
