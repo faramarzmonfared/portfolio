@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'apps.contact',
     'tailwind',
     'theme',
+    'widget_tweaks',
 ]
 
 TAILWIND_APP_NAME = "theme"
@@ -81,6 +82,8 @@ TEMPLATES = [
                 "apps.core.context_processors.current_year",
                 "apps.core.context_processors.social_links",
                 "django.template.context_processors.i18n",
+                "django.template.context_processors.request",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },

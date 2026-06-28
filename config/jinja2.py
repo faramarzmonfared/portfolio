@@ -3,6 +3,8 @@
 from typing import Any
 
 import markdown as markdown_lib
+from django.forms.boundfield import BoundField
+from django.middleware.csrf import get_token
 from django.templatetags.static import static
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -10,6 +12,32 @@ from django.utils.translation import gettext
 from jinja2 import Environment
 
 import jdatetime
+
+
+def add_class(field: BoundField, css_class: str) -> str:
+    """Render a form field with an additional CSS class.
+
+    Args:
+        field: The bound form field to render.
+        css_class: The CSS class string to apply.
+
+    Returns:
+        The rendered HTML for the field with the class applied.
+    """
+    return field.as_widget(attrs={"class": css_class})
+
+
+def csrf_input(request) -> str:
+    """Generate a hidden CSRF input field for forms.
+
+    Args:
+        request: The current HTTP request.
+
+    Returns:
+        An HTML-safe hidden input string containing the CSRF token.
+    """
+    token = get_token(request)
+    return mark_safe(f'<input type="hidden" name="csrfmiddlewaretoken" value="{token}">')
 
 
 def format_date(date: Any, language_code: str = "en") -> str:
@@ -58,8 +86,10 @@ def environment(**options: Any) -> Environment:
             "static": static,
             "url": reverse,
             "_": gettext,
+            "csrf_input": csrf_input,
         }
     )
     env.filters["markdown"] = render_markdown
     env.filters["jalali_date"] = format_date
+    env.filters["add_class"] = add_class
     return env
