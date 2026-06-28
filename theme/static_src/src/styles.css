@@ -36,6 +36,20 @@
   --font-vazir: "Vazirmatn", sans-serif;
 }
 
+.prose {
+  --tw-prose-body: var(--color-text-primary);
+  --tw-prose-headings: var(--color-text-primary);
+  --tw-prose-bold: var(--color-text-primary);
+  --tw-prose-links: var(--color-accent);
+}
+
+.dark .prose {
+  --tw-prose-body: var(--color-text-primary-dark);
+  --tw-prose-headings: var(--color-text-primary-dark);
+  --tw-prose-bold: var(--color-text-primary-dark);
+  --tw-prose-links: var(--color-accent-dark);
+}
+
 /**
   * A catch-all path to Django template files, JavaScript, and Python files
   * that contain Tailwind CSS classes and will be scanned by Tailwind to generate the final CSS file.
