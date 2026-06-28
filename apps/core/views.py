@@ -1,3 +1,10 @@
-from django.shortcuts import render
+"""Views for the core application."""
 
-# Create your views here.
+from django.views.generic import TemplateView
+
+
+class HomeView(TemplateView):
+    """Render the portfolio homepage."""
+
+    template_name = "core/home.html"
+    
