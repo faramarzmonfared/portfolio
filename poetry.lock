@@ -227,6 +227,25 @@ requests = ">=2.10.0"
 video = ["python-magic (>=0.4.12)"]
 
 [[package]]
+name = "django-jalali"
+version = "7.4.0"
+description = "Jalali Date support for Django model and admin interface"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "django_jalali-7.4.0-py3-none-any.whl", hash = "sha256:b7472b5bb54a3545607f6c5e03f2778bd555f79015a77e06670a3d9d4045e7e1"},
+    {file = "django_jalali-7.4.0.tar.gz", hash = "sha256:c1beb70625e5f34f79df488f25073e45049194a0d4193e0e0348369a425c4fb0"},
+]
+
+[package.dependencies]
+django = ">=4.2"
+jdatetime = ">=5.0.0"
+
+[package.extras]
+drf = ["djangorestframework (>=3.12)"]
+
+[[package]]
 name = "django-jinja"
 version = "2.11.0"
 description = "Jinja2 templating language integrated in Django."
@@ -309,6 +328,33 @@ files = [
 
 [package.extras]
 all = ["mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2)"]
+
+[[package]]
+name = "jalali-core"
+version = "1.0.0"
+description = "a Gregorian to Jalali and inverse date convertor"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "jalali_core-1.0.0-py3-none-any.whl", hash = "sha256:84e6f5090eadfb35234f24fad084be831d00da3c0b238ee001e8a1fd49bf7924"},
+    {file = "jalali_core-1.0.0.tar.gz", hash = "sha256:f4287c70c630323dcf0a3ab26df905ba4d451e230ac1f65b3bb2f77797894a2b"},
+]
+
+[[package]]
+name = "jdatetime"
+version = "5.3.0"
+description = "Jalali datetime binding for python"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "jdatetime-5.3.0-py3-none-any.whl", hash = "sha256:85cb960808dc2287c93d4c7431cddcd367ee6d81c321a4db1700ee3e1d8aafcc"},
+    {file = "jdatetime-5.3.0.tar.gz", hash = "sha256:d20eb9fc2a00e86493a6156b2a0e4e579f23379e8fea186a0e603fd36a130227"},
+]
+
+[package.dependencies]
+jalali-core = ">=1.0"
 
 [[package]]
 name = "jinja2"
@@ -740,4 +786,4 @@ zstd = ["backports-zstd (>=1.0.0) ; python_version < \"3.14\""]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "611ecdc8fe6c4be1e22a543ad125e3eb474be40ed45a8e200b8568db1d17c8a5"
+content-hash = "5de5ad23a5074d5848055514d83c7db33deef80f73295eff57920c0e596a9948"

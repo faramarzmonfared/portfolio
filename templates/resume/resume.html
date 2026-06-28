@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _("Resume") }}{% endblock %}
+
+{% block content %}
+    <div class="max-w-3xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-semibold mb-8">{{ _("Resume") }}</h1>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">{{ _("Experience") }}</h2>
+            {% for experience in experiences %}
+                <div class="mb-6 pb-6 border-b border-border dark:border-border-dark">
+                    <h3 class="text-lg font-semibold">{{ experience.role }} &mdash; {{ experience.company }}</h3>
+                    <p class="text-text-muted text-sm">
+                        {{ experience.location }} &middot;
+                        {{ experience.start_date|jalali_date(LANGUAGE_CODE) }} &mdash;
+                        {% if experience.is_current %}{{ _("Present") }}{% else %}{{ experience.end_date|jalali_date(LANGUAGE_CODE) }}{% endif %}
+                    </p>
+                    <div class="prose dark:prose-invert mt-2">
+                        {{ experience.description|markdown }}
+                    </div>
+                </div>
+            {% else %}
+                <p class="text-text-muted">{{ _("No experience added yet.") }}</p>
+            {% endfor %}
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">{{ _("Education") }}</h2>
+            {% for education in educations %}
+                <div class="mb-6 pb-6 border-b border-border dark:border-border-dark">
+                    <h3 class="text-lg font-semibold">{{ education.degree }} &mdash; {{ education.institution }}</h3>
+                    <p class="text-text-muted text-sm">
+                        {{ education.field_of_study }} | {{ education.location }} &middot;
+                        {{ education.start_date|jalali_date(LANGUAGE_CODE) }} &mdash;
+                        {{ education.end_date|jalali_date(LANGUAGE_CODE) }}
+                    </p>
+                </div>
+            {% else %}
+                <p class="text-text-muted">{{ _("No education added yet.") }}</p>
+            {% endfor %}
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold mb-4">{{ _("Skills") }}</h2>
+            <div class="flex flex-wrap gap-2">
+                {% for skill in skills %}
+                    <span class="px-3 py-1 text-sm rounded-card border border-border dark:border-border-dark">
+                        {{ skill.name }}
+                    </span>
+                {% else %}
+                    <p class="text-text-muted">{{ _("No skills added yet.") }}</p>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+{% endblock %}

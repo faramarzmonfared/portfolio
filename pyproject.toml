@@ -15,7 +15,8 @@ dependencies = [
     "django-markdownx (>=4.0.11,<5.0.0)",
     "django-parler (>=2.4,<3.0)",
     "django-cloudinary-storage (>=0.3.0,<0.4.0)",
-    "markdown (>=3.10.2,<4.0.0)"
+    "markdown (>=3.10.2,<4.0.0)",
+    "django-jalali (>=7.4.0,<8.0.0)"
 ]
 
 

@@ -18,6 +18,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path("", HomeView.as_view(), name="home"),
     path("projects/", include("apps.portfolio.urls")),
+    path("resume/", include("apps.resume.urls")),
     prefix_default_language=False,
 )
 
