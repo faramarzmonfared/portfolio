@@ -2,6 +2,8 @@
 
 {% block title %}{{ project.title }}{% endblock %}
 
+{% block meta_description %}{{ project.overview }}{% endblock %}
+
 {% block content %}
     <div class="max-w-3xl mx-auto px-4 py-12">
         <a href="{{ url('portfolio:project_list') }}" class="text-text-muted hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">

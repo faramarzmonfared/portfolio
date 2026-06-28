@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Portfolio{% endblock %}</title>
+    <title>{% block title %}Faramarz Monfared{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{{ _('Full-stack developer portfolio.') }}{% endblock %}">
+
+    <meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ self.meta_description() }}{% endblock %}">
+    <meta property="og:type" content="website">
+
     {% include "components/theme_init.html" %}
     <link rel="stylesheet" href="{{ static('css/dist/styles.css') }}">
-    <script src="{{ static('js/navbar.js') }}"></script>
 </head>
 <body class="bg-background dark:bg-background-dark text-text-primary dark:text-text-primary-dark {% if LANGUAGE_BIDI %}font-vazir{% endif %}">
     {% include "components/navbar.html" %}

@@ -2,6 +2,8 @@
 
 {% block title %}{{ _("Home") }}{% endblock %}
 
+{% block meta_description %}{{ profile.tagline if profile else _("Full-stack developer portfolio.") }}{% endblock %}
+
 {% block content %}
     <div class="max-w-3xl mx-auto px-4 py-16 text-center">
         {% if profile %}
