@@ -6,12 +6,25 @@ import markdown as markdown_lib
 from django.forms.boundfield import BoundField
 from django.middleware.csrf import get_token
 from django.templatetags.static import static
-from django.urls import reverse
+from django.urls import reverse, translate_url
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext
 from jinja2 import Environment
 
 import jdatetime
+
+
+def translated_path(path: str, language_code: str) -> str:
+    """Translate a URL path into the given language.
+
+    Args:
+        path: The current request path.
+        language_code: The target language code.
+
+    Returns:
+        The equivalent path translated to the target language.
+    """
+    return translate_url(path, language_code)
 
 
 def add_class(field: BoundField, css_class: str) -> str:
@@ -87,6 +100,7 @@ def environment(**options: Any) -> Environment:
             "url": reverse,
             "_": gettext,
             "csrf_input": csrf_input,
+            "translated_path": translated_path
         }
     )
     env.filters["markdown"] = render_markdown

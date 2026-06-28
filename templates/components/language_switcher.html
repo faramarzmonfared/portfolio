@@ -1,0 +1,10 @@
+<form action="{{ url('set_language') }}" method="post" class="inline">
+    {{ csrf_input(request) }}
+    {% if LANGUAGE_CODE == "en" %}
+        <input type="hidden" name="next" value="{{ translated_path(request.get_full_path(), 'fa') }}">
+        <button type="submit" name="language" value="fa" class="...">فا</button>
+    {% else %}
+        <input type="hidden" name="next" value="{{ translated_path(request.get_full_path(), 'en') }}">
+        <button type="submit" name="language" value="en" class="...">EN</button>
+    {% endif %}
+</form>
