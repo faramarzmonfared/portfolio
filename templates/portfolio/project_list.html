@@ -8,10 +8,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {% for project in projects %}
-                
-                    href="{{ url('portfolio:project_detail', kwargs={'slug': project.slug}) }}"
-                    class="block p-6 rounded-card border border-border dark:border-border-dark hover:border-accent dark:hover:border-accent-dark transition-colors duration-200"
-                >
+                <a href="{{ url('portfolio:project_detail', args=[project.slug]) }}" class="block p-6 rounded-card border border-border dark:border-border-dark hover:border-accent dark:hover:border-accent-dark transition-colors duration-200">
                     <h2 class="text-xl font-semibold">{{ project.title }}</h2>
                     <p class="text-text-muted mt-2">{{ project.overview }}</p>
                 </a>
