@@ -3,7 +3,29 @@
 {% block title %}{{ _("Home") }}{% endblock %}
 
 {% block content %}
-    <div class="max-w-5xl mx-auto px-4 py-12">
-        <h1 class="text-3xl font-semibold">{{ _("Hello, Portfolio!") }}</h1>
+    <div class="max-w-3xl mx-auto px-4 py-16 text-center">
+        {% if profile %}
+            {% if profile.avatar %}
+                <img src="{{ profile.avatar.url }}" alt="{{ profile.name }}" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover">
+            {% endif %}
+
+            <h1 class="text-4xl font-semibold">{{ profile.name }}</h1>
+            <p class="text-xl text-accent dark:text-accent-dark mt-2">{{ profile.tagline }}</p>
+
+            <div class="prose dark:prose-invert mx-auto mt-6 text-justify">
+                {{ profile.bio|markdown }}
+            </div>
+
+            <div class="flex justify-center gap-4 mt-8">
+                <a href="{{ url('portfolio:project_list') }}" class="px-5 py-2 rounded-card bg-accent dark:bg-accent-dark text-white">
+                    {{ _("View Projects") }}
+                </a>
+                <a href="{{ url('contact:contact') }}" class="px-5 py-2 rounded-card border border-border dark:border-border-dark">
+                    {{ _("Get in Touch") }}
+                </a>
+            </div>
+        {% else %}
+            <p class="text-text-muted">{{ _("Profile not configured yet.") }}</p>
+        {% endif %}
     </div>
 {% endblock %}

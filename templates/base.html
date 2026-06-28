@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ static('css/dist/styles.css') }}">
     <script src="{{ static('js/navbar.js') }}"></script>
 </head>
-<body class="bg-background dark:bg-background-dark text-text-primary dark:text-text-primary-dark">
+<body class="bg-background dark:bg-background-dark text-text-primary dark:text-text-primary-dark {% if LANGUAGE_BIDI %}font-vazir{% endif %}">
     {% include "components/navbar.html" %}
 
     <main>
