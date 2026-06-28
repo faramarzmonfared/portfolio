@@ -10,3 +10,4 @@ media/
 .DS_Store
 theme/static/css/dist/
 .vscode/
+theme/static_src/node_modules

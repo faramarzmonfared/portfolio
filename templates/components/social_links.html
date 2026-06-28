@@ -1,0 +1,7 @@
+<div class="flex items-center gap-4">
+    {% for link in social_links %}
+        <a href="{{ link.url }}" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+            {{ link.label or link.platform }}
+        </a>
+    {% endfor %}
+</div>

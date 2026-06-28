@@ -1,1 +1,9 @@
-<h1>Hello, Portfolio!</h1>
+{% extends "base.html" %}
+
+{% block title %}{{ _("Home") }}{% endblock %}
+
+{% block content %}
+    <div class="max-w-5xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-semibold">{{ _("Hello, Portfolio!") }}</h1>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<nav class="border-b border-border dark:border-border-dark">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="{{ url('home') }}" class="font-mono text-lg font-semibold">
+            ~/
+        </a>
+
+        <div class="flex items-center gap-6">
+            <a href="{{ url('home') }}" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+                {{ _("Home") }}
+            </a>
+            <a href="#" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+                {{ _("Projects") }}
+            </a>
+            <a href="#" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+                {{ _("Resume") }}
+            </a>
+            <a href="#" class="hover:text-accent dark:hover:text-accent-dark transition-colors duration-200">
+                {{ _("Contact") }}
+            </a>
+
+            {% include "components/theme_toggle.html" %}
+        </div>
+    </div>
+</nav>

@@ -77,6 +77,11 @@ TEMPLATES = [
             "app_dirname": "jinja2",
             "match_extension": ".html",
             "environment": "config.jinja2.environment",
+            "context_processors": [
+                "apps.core.context_processors.current_year",
+                "apps.core.context_processors.social_links",
+                "django.template.context_processors.i18n",
+            ],
         },
     },
     {
